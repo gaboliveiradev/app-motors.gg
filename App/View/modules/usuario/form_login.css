@@ -1,0 +1,46 @@
+/* Estilizando a tela de LOGIN */ 
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body >.sc-form {
+    width: 600px;
+}
+
+body > .sc-logo {
+    width: 150px;
+    height: 150px;
+    background: url("./../../../View/assets/logo_vertical.png") no-repeat center;
+    background-size: cover;
+    margin-bottom: 10px;
+}
+
+.footer-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-form > a {
+    color: #418D6C;
+    cursor: pointer;
+}
+
+.footer-form > a:hover {
+    color: #418D6C;;
+}
+
+.cor_btn {
+    background-color: #377a5d !important;
+    border: none !important;
+}
