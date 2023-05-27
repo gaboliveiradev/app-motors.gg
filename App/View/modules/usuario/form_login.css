@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-body {
+main {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -14,11 +14,11 @@ body {
     flex-direction: column;
 }
 
-body >.sc-form {
+main >.sc-form {
     width: 600px;
 }
 
-body > .sc-logo {
+main > .sc-logo {
     width: 150px;
     height: 150px;
     background: url("./../../../View/assets/logo_vertical.png") no-repeat center;

@@ -3,7 +3,7 @@ namespace App\Controller;
 
 abstract class Controller {
     protected static function isAuthenticated() {
-        if(!isset($_SESSION['user']))
+        if(!isset($_SESSION['motorsgg_logged']))
         header("Location: /login");
     }
 
@@ -14,5 +14,20 @@ abstract class Controller {
             include  $arquivo;
         else 
             echo "arquivo não encontrado. Caminho: " . $arquivo;   
+    }
+
+    protected static function setResponseAsJSON($data, $request_status = true)
+    {
+        $response = array('response_data' => $data, 'response_successful' => $request_status);
+
+        header("Access-Control-Allow-Origin: *");  
+        header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+        header('Access-Control-Allow-Headers: Origin, Content-Type, Accept');      
+        header("Content-type: application/json; charset=utf-8");
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        header("Pragma: public");      
+        
+        exit(json_encode($response));
     }
 }
