@@ -1,0 +1,36 @@
+.title__navbar {
+    font-weight: bold;   
+}
+
+.img {
+    background-image: url('./../../View/assets/favicon.png');
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img__ofcanvas {
+    background-image: url('./../../View/assets/logo_horizontal.png');
+    width: 190px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.itens > a {
+    font-size: 20px;
+}
+
+.itens {
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.itens:hover {
+    background-color: #4f9677;
+    transition: 1s;
+}

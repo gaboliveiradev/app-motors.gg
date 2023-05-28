@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../../../View/modules/usuario/form_login.css">
-    <link rel="shortcut icon" href="./../../../View/assets/favicon.png" type="image/x-icon">
-    <?php include "./View/includes/css_config.php" ?>
-    <?php include "./View/includes/js_config.php" ?>
-    <title>Motors.GG - Logue em sua conta.</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./../../../View/modules/usuario/form_login.css">
+  <link rel="shortcut icon" href="./../../../View/assets/favicon.png" type="image/x-icon">
+  <?php include "./View/includes/css_config.php" ?>
+  <?php include "./View/includes/js_config.php" ?>
+  <title>Motors.GG - Logue em sua conta.</title>
 </head>
 <body>
     <main>
