@@ -4,3 +4,4 @@
 -->
 
 <!-- BOOTSTRAP --> <script src="./../../View/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DATATABLE --> <script src="./../../View/js/DataTable/datatables.min.js"></script>

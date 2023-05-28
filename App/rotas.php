@@ -1,5 +1,8 @@
 <?php
 use App\Controller\{
+    CombustivelController,
+    FabricanteController,
+    MarcaController,
     UsuarioController,
     VeiculoController,
 };
@@ -17,8 +20,29 @@ switch($parse_uri) {
         UsuarioController::autenticar();
     break;
 
+    // == [OK] == Rotas de Veiculo
     case "/veiculo/form":
         VeiculoController::form();
+    break;
+
+    // == [OK] == Rotas de Combustivel
+    case "/combustivel/form":
+        CombustivelController::form();
+    break;
+
+    // == [OK] == Rotas de Fabricante
+    case "/fabricante/form":
+        FabricanteController::form();
+    break;
+
+    // == [OK] == Rotas de Marca
+    case "/marca/form":
+        MarcaController::form();
+    break;
+
+    // == [OK] == Rotas de Tipo Veículo
+    case "/tipo-veiculo/form":
+        MarcaController::form();
     break;
 
     default:

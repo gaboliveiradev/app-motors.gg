@@ -19,19 +19,19 @@
               <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-houses-fill"></i> Dashboard</a>
             </li>
             <li class="nav-item itens">
-              <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-fuel-pump-fill"></i> Combutível</a>
+              <a class="nav-link active" aria-current="page" href="/combustivel/form"><i class="bi bi-fuel-pump-fill"></i> Combutível</a>
             </li>
             <li class="nav-item itens">
-              <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-buildings-fill"></i> Fabricante</a>
+              <a class="nav-link active" aria-current="page" href="/fabricante/form"><i class="bi bi-buildings-fill"></i> Fabricante</a>
             </li>
             <li class="nav-item itens">
-              <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-tags-fill"></i> Marca</a>
+              <a class="nav-link active" aria-current="page" href="/marca/form"><i class="bi bi-tags-fill"></i> Marca</a>
             </li>
             <li class="nav-item itens">
-              <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bus-front"></i> Tipo do Veículo</a>
+              <a class="nav-link active" aria-current="page" href="/tipo-veiculo/form"><i class="bi bi-bus-front"></i> Tipo do Veículo</a>
             </li>
             <li class="nav-item itens">
-              <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-car-front-fill"></i> Veículo</a>
+              <a class="nav-link active" aria-current="page" href="/veiculo/form"><i class="bi bi-car-front-fill"></i> Veículo</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

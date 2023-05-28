@@ -6,5 +6,6 @@ class VeiculoController extends Controller {
 	public static function form() 
 	{
 		parent::isAuthenticated();
-		parent::render('veiculo/form_cad_veiculo');	}
+		parent::render('veiculo/cr_veiculo');	
+	}
 }
