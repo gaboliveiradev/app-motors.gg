@@ -3,6 +3,7 @@ use App\Controller\{
     CombustivelController,
     FabricanteController,
     MarcaController,
+    TipoVeiculoController,
     UsuarioController,
     VeiculoController,
 };
@@ -42,7 +43,7 @@ switch($parse_uri) {
 
     // == [OK] == Rotas de Tipo Veículo
     case "/tipo-veiculo/form":
-        MarcaController::form();
+        TipoVeiculoController::form();
     break;
 
     default:
