@@ -33,9 +33,17 @@ switch($parse_uri) {
         CombustivelController::form();
     break;
 
+    case "/combustivel/salvar":
+        CombustivelController::salvar();
+    break;
+
     // == [OK] == Rotas de Fabricante
     case "/fabricante/form":
         FabricanteController::form();
+    break;
+
+    case "/fabricante/salvar":
+        FabricanteController::salvar();
     break;
 
     // == [OK] == Rotas de Marca
@@ -43,9 +51,17 @@ switch($parse_uri) {
         MarcaController::form();
     break;
 
+    case "/marca/salvar":
+        MarcaController::salvar();
+    break;
+
     // == [OK] == Rotas de Tipo Veículo
     case "/tipo-veiculo/form":
         TipoVeiculoController::form();
+    break;
+
+    case "/tipo-veiculo/salvar":
+        TipoVeiculoController::salvar();
     break;
 
     // == [OK] == Rotas de Dashboard

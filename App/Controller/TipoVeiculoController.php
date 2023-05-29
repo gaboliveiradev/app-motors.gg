@@ -8,4 +8,9 @@ class TipoVeiculoController extends Controller {
 		parent::isAuthenticated();
 		parent::render("tipo veiculo/cr_tipo_veiculo");
 	}
+
+	public static function salvar() 
+	{
+
+	}
 }

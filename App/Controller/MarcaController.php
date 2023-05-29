@@ -8,4 +8,9 @@ class MarcaController extends Controller {
 		parent::isAuthenticated();
 		parent::render("marca/cr_marca");
 	}
+
+	public static function salvar() 
+	{
+
+	}
 }

@@ -8,4 +8,9 @@ class CombustivelController extends Controller {
 		parent::isAuthenticated();
 		parent::render("combustivel/cr_combustivel");
 	}
+
+	public static function salvar() 
+	{
+
+	}
 }

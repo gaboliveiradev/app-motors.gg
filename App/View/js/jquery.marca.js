@@ -4,7 +4,7 @@ $("#formMarca").submit((e) => {
     alert($("#marca").val());
 
     /*$.ajax({
-        url: '/combustivel/salvar',
+        url: '/marca/salvar',
         method: 'POST',
         dataType: 'json',
         data: {

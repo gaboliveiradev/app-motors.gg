@@ -4,7 +4,7 @@ $("#formTipoVeiculo").submit((e) => {
     alert($("#tipoVeiculo").val());
 
     /*$.ajax({
-        url: '/combustivel/salvar',
+        url: '/tipo-veiculo/salvar',
         method: 'POST',
         dataType: 'json',
         data: {

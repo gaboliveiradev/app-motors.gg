@@ -8,4 +8,9 @@ class FabricanteController extends Controller {
 		parent::isAuthenticated();
 		parent::render("fabricante/cr_fabricante");
 	}
+
+	public static function salvar() 
+	{
+
+	}
 }

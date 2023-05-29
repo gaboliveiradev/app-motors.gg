@@ -4,7 +4,7 @@ $("#formFabricante").submit((e) => {
     alert($("#fabricante").val());
 
     /*$.ajax({
-        url: '/combustivel/salvar',
+        url: '/fabricante/salvar',
         method: 'POST',
         dataType: 'json',
         data: {
