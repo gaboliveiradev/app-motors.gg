@@ -21,7 +21,22 @@
         <h1 class="text-center">Tipo do Veículo</h1>
         <hr>
       </div>
+      <div class="body__form">
+        <form class="row g-3" id="formTipoVeiculo">
+          <div class="mb-3 ipt" >
+            <label for="exampleFormControlInput1" class="form-label">Tipo do Veículo:</label>
+            <input id="tipoVeiculo" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Passeio">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3" form="formTipoVeiculo">Cadastrar</button>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <script src="./../../../View/js/jquery.tipoveiculo.js"></script>
+  </footer>
 </body>
 </html>

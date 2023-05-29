@@ -23,13 +23,13 @@
         <hr>
       </div>
       <div class="body__form">
-        <form class="row g-3">
+        <form class="row g-3" id="formCombustivel">
           <div class="mb-3 ipt" >
             <label for="exampleFormControlInput1" class="form-label">Nome do Combustível:</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Gasolina">
+            <input id="combustivel" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Gasolina">
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Cadastrar</button>
+            <button type="submit" class="btn btn-primary mb-3" form="formCombustivel">Cadastrar</button>
           </div>
         </form>
       </div>
@@ -38,6 +38,7 @@
 
   <footer>
     <script src="./../../../View/js/sweetalert/sweetalert-v11.7.5.js"></script>
+    <script src="./../../../View/js/jquery.combustivel.js"></script>
   </footer>
 </body>
 </html>
