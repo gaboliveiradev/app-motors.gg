@@ -2,6 +2,7 @@
 use App\Controller\{
     BackupController,
     CombustivelController,
+    DashboardController,
     FabricanteController,
     MarcaController,
     TipoVeiculoController,
@@ -45,6 +46,11 @@ switch($parse_uri) {
     // == [OK] == Rotas de Tipo Veículo
     case "/tipo-veiculo/form":
         TipoVeiculoController::form();
+    break;
+
+    // == [OK] == Rotas de Dashboard
+    case "/dashboard":
+        DashboardController::index();
     break;
 
     // == [OK] == Rotas de Backup

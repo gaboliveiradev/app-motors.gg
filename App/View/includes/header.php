@@ -16,7 +16,7 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item itens">
-              <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-houses-fill"></i> Dashboard</a>
+              <a class="nav-link active" aria-current="page" href="/dashboard"><i class="bi bi-houses-fill"></i> Dashboard</a>
             </li>
             <li class="nav-item itens">
               <a class="nav-link active" aria-current="page" href="/combustivel/form"><i class="bi bi-fuel-pump-fill"></i> Combutível</a>
@@ -57,7 +57,7 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
                 <li><a class="dropdown-item" id="exportar" data-bs-toggle="modal" data-bs-target="#exampleModal">Exportar Banco de Dados</a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal1">Importar Banco de Dados</a></li>
+                <li><a class="dropdown-item" id="importar" data-bs-toggle="modal" data-bs-target="#exampleModal1">Importar Banco de Dados</a></li>
               </ul>
             </li>
           </ul>
@@ -68,7 +68,7 @@
 
 <!-- Modal -->
 
-<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -88,7 +88,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
 
 <script src="./../../View/js/jQuery/jquery-v3.7.0-min.js"></script>
 <script src="./../../View/js/jquery.backup.js"></script>

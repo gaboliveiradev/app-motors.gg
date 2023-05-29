@@ -14,7 +14,7 @@ $('#formLogin').submit((e) => {
         dataType: 'json',
         success: ((result) => {
             if (!jQuery.isEmptyObject(result.response_data[0])) {
-                window.location.href = "/veiculo/form";
+                window.location.href = "/dashboard";
             } else {
                 Swal.fire({
                     icon: 'error',

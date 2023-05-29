@@ -7,15 +7,14 @@ class BackupController extends Controller {
 
 	public static function export() 
 	{
-		setlocale(LC_TIME, 'pt_BR.utf8');
 		$path = "C:\backup-motors.gg";
 
 		try {
 			if(!is_dir($path)) {
 				mkdir($path);
-				self::criarArquivoBat();
+				exec(BASEDIR . "/App/Backup/export.bat");
 			} else {
-				self::criarArquivoBat();
+				exec(BASEDIR . "/App/Backup/export.bat");
 			}
 
 			parent::setResponseAsJSON(true);
@@ -26,16 +25,19 @@ class BackupController extends Controller {
 
 	public static function import() 
 	{
-		// importar
+		$path = "C:\backup-motors.gg";
+
+		try {
+			if(!is_dir($path)) {
+				mkdir($path);
+				exec(BASEDIR . "/App/Backup/import.bat");
+			} else {
+				exec(BASEDIR . "/App/Backup/import.bat");
+			}
+
+			parent::setResponseAsJSON(true);
+		} catch (Exception $err) {
+			parent::setResponseAsJSON(false);
+		}
 	}
-
-	private static function criarArquivoBat() {
-		$dataHoraAtual = date("d-m-Y-H-i-s");
-		$nomeArquivo = "backup_" . $dataHoraAtual . ".sql";
-
-		$caminhoArquivo = "C:\\backup-motors.gg\\" . $nomeArquivo;
-		$comando = 'C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysqldump -hlocalhost -P3307 -uroot -petecjau ggmotors_banco --databases > "' . $caminhoArquivo . '"';
-		exec($comando);
-	}
-
 }
