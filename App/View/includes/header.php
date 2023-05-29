@@ -56,8 +56,8 @@
                 Configurações de SGBD
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">Exportar Banco de Dados</a></li>
-                <li><a class="dropdown-item" href="#">Importar Banco de Dados</a></li>
+                <li><a class="dropdown-item" id="exportar" data-bs-toggle="modal" data-bs-target="#exampleModal">Exportar Banco de Dados</a></li>
+                <li><a class="dropdown-item" href="/importar">Importar Banco de Dados</a></li>
               </ul>
             </li>
           </ul>
@@ -65,3 +65,6 @@
       </div>
     </div>
 </nav>
+
+<script src="./../../View/js/jQuery/jquery-v3.7.0-min.js"></script>
+<script src="./../../View/js/jquery.backup.js"></script>

@@ -19,5 +19,9 @@
   <main>
     Combu
   </main>
+
+  <footer>
+    <script src="./../../../View/js/sweetalert/sweetalert-v11.7.5.js"></script>
+  </footer>
 </body>
 </html>

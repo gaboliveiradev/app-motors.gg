@@ -35,7 +35,7 @@
                     </p>
                   </div>
                   <div class="footer-form">
-                    <input id class="w-100 mb-2 btn btn-lg rounded-3 btn-primary cor_btn" type="submit" form="formLogin" value="Entrar"/>
+                    <input class="w-100 mb-2 btn btn-lg rounded-3 btn-primary cor_btn" type="submit" form="formLogin" value="Entrar"/>
                     <a class="text-body-secondary">Esqueceu sua senha? Clique aqui.</a>
                   </div>
                 </form>
@@ -46,9 +46,9 @@
     
 
     <footer>
-        <script src="./../../../View/js/jQuery/jquery-v3.7.0-min.js"></script>
-        <script src="./../../../View/js/sweetalert/sweetalert-v11.7.5.js"></script>
-        <script src="./../../../View/js/jquery.usuario.js"></script>
+      <script src="./../../../View/js/jQuery/jquery-v3.7.0-min.js"></script>
+      <script src="./../../../View/js/sweetalert/sweetalert-v11.7.5.js"></script>
+      <script src="./../../../View/js/jquery.usuario.js"></script>
     </footer>
 </body>
 </html>

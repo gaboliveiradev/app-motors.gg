@@ -1,5 +1,6 @@
 <?php
 use App\Controller\{
+    BackupController,
     CombustivelController,
     FabricanteController,
     MarcaController,
@@ -44,6 +45,15 @@ switch($parse_uri) {
     // == [OK] == Rotas de Tipo Veículo
     case "/tipo-veiculo/form":
         TipoVeiculoController::form();
+    break;
+
+    // == [OK] == Rotas de Backup
+    case "/exportar":
+        BackupController::export();
+    break;
+
+    case "/importar":
+        BackupController::import();
     break;
 
     default:
