@@ -57,7 +57,7 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
                 <li><a class="dropdown-item" id="exportar" data-bs-toggle="modal" data-bs-target="#exampleModal">Exportar Banco de Dados</a></li>
-                <li><a class="dropdown-item" href="/importar">Importar Banco de Dados</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal1">Importar Banco de Dados</a></li>
               </ul>
             </li>
           </ul>
@@ -65,6 +65,30 @@
       </div>
     </div>
 </nav>
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Importar Dados</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Arquivo SQL</label>
+          <input class="form-control" type="file" id="file">
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="importar" class="btn btn-success">Importar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="./../../View/js/jQuery/jquery-v3.7.0-min.js"></script>
 <script src="./../../View/js/jquery.backup.js"></script>

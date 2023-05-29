@@ -26,7 +26,7 @@ class BackupController extends Controller {
 
 	public static function import() 
 	{
-        exec(BASEDIR . '/App/Backup/import.bat');  
+		// importar
 	}
 
 	private static function criarArquivoBat() {
