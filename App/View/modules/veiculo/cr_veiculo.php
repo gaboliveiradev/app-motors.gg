@@ -17,7 +17,12 @@
   </header>
 
   <main>
-    Veículo
+    <section class="sc__form">
+      <div class="header__form">
+        <h1 class="text-center">Veículo</h1>
+        <hr>
+      </div>
+    </section>
   </main>
 </body>
 </html>

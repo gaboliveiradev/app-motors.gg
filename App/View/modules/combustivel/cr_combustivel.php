@@ -17,7 +17,23 @@
   </header>
 
   <main>
-    Combu
+    <section class="sc__form">
+      <div class="header__form">
+        <h1 class="text-center">Combustível</h1>
+        <hr>
+      </div>
+      <div class="body__form">
+        <form class="row g-3">
+          <div class="mb-3 ipt" >
+            <label for="exampleFormControlInput1" class="form-label">Nome do Combustível:</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Gasolina">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer>

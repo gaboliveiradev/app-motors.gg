@@ -16,7 +16,12 @@
   </header>
 
   <main>
-    Tipo
+    <section class="sc__form">
+      <div class="header__form">
+        <h1 class="text-center">Tipo do Veículo</h1>
+        <hr>
+      </div>
+    </section>
   </main>
 </body>
 </html>

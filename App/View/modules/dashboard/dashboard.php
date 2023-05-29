@@ -17,7 +17,7 @@
   </header>
 
   <main>
-    <h1>Bem Vindo (a)</h1>
+    <h1>Bem Vindo (a) <?= $_SESSION["motorsgg_logged"][0]->nome ?></h1>
   </main>
 </body>
 </html>

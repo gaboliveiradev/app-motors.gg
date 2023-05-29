@@ -17,7 +17,12 @@
   </header>
 
   <main>
-    Fabricante
+    <section class="sc__form">
+      <div class="header__form">
+        <h1 class="text-center">Fabricante</h1>
+        <hr>
+      </div>
+    </section>
   </main>
 </body>
 </html>

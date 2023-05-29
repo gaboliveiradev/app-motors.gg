@@ -4,8 +4,13 @@ main {
     border-radius: 10px;
     height: 85vh;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    padding: 20px;
 }
 
 .color {
     background: #d3d3d3;
+}
+
+.body__form {
+    padding: 10px;
 }
