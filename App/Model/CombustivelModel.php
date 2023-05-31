@@ -1,26 +1,14 @@
 <?php
 namespace App\Model;
 
+use App\DAO\CombustivelDAO;
+
 class CombustivelModel extends Model {
-	public $id;
+	public $id, $descricao, $data_cadastro, $id_quem_registrou, $ativo;
 
-	public function save() 
+	public function salvar() 
 	{
-
-	}
-
-	public function getAllRows() 
-	{
-
-	}
-
-	public function delete(int $id) 
-	{
-
-	}
-
-	public function getById(int $id) 
-	{
-
+		$dao = new CombustivelDAO();
+		return ($this->id == null) ? $dao->insert($this) : $dao->update($this);
 	}
 }
