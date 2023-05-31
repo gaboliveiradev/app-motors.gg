@@ -1,20 +1,30 @@
 $("#formFabricante").submit((e) => {
     e.preventDefault();
 
-    alert($("#fabricante").val());
+    var fabricante = $("#fabricante").val();
 
-    /*$.ajax({
-        url: '/fabricante/salvar',
-        method: 'POST',
-        dataType: 'json',
-        data: {
-            descricao: $("#fabricante").val()
-        },
-        success: ((result) => {
-            alert(`SUCCESS: ${result.response_data}`);
-        }),
-        error: ((result) => {
-            alert(`ERRO: ${result.response_data}`);
-        })
-    });*/
+    if(fabricante == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Campos Vazios!',
+        });
+    } else {
+        $.ajax({
+            url: '/fabricante/salvar',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                fabricante: fabricante.toUpperCase()
+            },
+            success: ((result) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Fabricante Cadastrado!',
+                });
+            }),
+            error: ((result) => {
+                alert(`ERRO: ${result.response_data}`);
+            })
+        });
+    }
 });

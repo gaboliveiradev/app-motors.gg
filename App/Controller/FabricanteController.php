@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
 
+use App\Model\FabricanteModel;
+
 class FabricanteController extends Controller {
 
 	public static function form() 
@@ -11,6 +13,10 @@ class FabricanteController extends Controller {
 
 	public static function salvar() 
 	{
+		$model = new FabricanteModel();
 
+		$model->descricao = $_POST['fabricante'];
+		$model->id_quem_registrou = $_SESSION["motorsgg_logged"][0]->id;
+		parent::setResponseAsJSON($model->salvar());
 	}
 }

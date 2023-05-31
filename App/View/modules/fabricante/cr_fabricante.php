@@ -37,6 +37,7 @@
   </main>
 
   <footer>
+    <script src="./../../../View/js/sweetalert/sweetalert-v11.7.5.js"></script>
     <script src="./../../../View/js/jquery.fabricante.js"></script>
   </footer>
 </body>
