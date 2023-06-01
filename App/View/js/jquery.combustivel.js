@@ -1,9 +1,9 @@
 $("#formCombustivel").submit((e) => {
     e.preventDefault();
 
-    var combu = $("#combustivel").val();
+    var combu = $("#combustivel");
 
-    if(combu == "") {
+    if(combu.val() == "") {
         Swal.fire({
             icon: 'error',
             title: 'Campos Vazios!',
@@ -14,16 +14,22 @@ $("#formCombustivel").submit((e) => {
             method: 'POST',
             dataType: 'json',
             data: {
-                combustivel: combu.toUpperCase()
+                combustivel: combu.val().toUpperCase()
             },
             success: ((result) => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Combustível Cadastrado!',
                 });
+
+                combu.val("");
             }),
             error: ((result) => {
-                alert(`ERRO: ${result.response_data}`);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao Cadastrar!',
+                    text: 'Ocorreu um erro inesperado ao tentar cadastrar um combustível, tente novamente mais tarde.'
+                });
             })
         });
     }

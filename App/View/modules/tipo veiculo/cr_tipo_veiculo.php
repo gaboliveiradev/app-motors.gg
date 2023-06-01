@@ -36,6 +36,7 @@
   </main>
 
   <footer>
+    <script src="./../../../View/js/sweetalert/sweetalert-v11.7.5.js"></script>
     <script src="./../../../View/js/jquery.tipoveiculo.js"></script>
   </footer>
 </body>

@@ -1,9 +1,9 @@
 $("#formFabricante").submit((e) => {
     e.preventDefault();
 
-    var fabricante = $("#fabricante").val();
+    var fabricante = $("#fabricante");
 
-    if(fabricante == "") {
+    if(fabricante.val() == "") {
         Swal.fire({
             icon: 'error',
             title: 'Campos Vazios!',
@@ -14,16 +14,22 @@ $("#formFabricante").submit((e) => {
             method: 'POST',
             dataType: 'json',
             data: {
-                fabricante: fabricante.toUpperCase()
+                fabricante: fabricante.val().toUpperCase()
             },
             success: ((result) => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Fabricante Cadastrado!',
                 });
+
+                fabricante.val("");
             }),
             error: ((result) => {
-                alert(`ERRO: ${result.response_data}`);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao Cadastrar!',
+                    text: 'Ocorreu um erro inesperado ao tentar cadastrar um fabricante, tente novamente mais tarde.'
+                });
             })
         });
     }

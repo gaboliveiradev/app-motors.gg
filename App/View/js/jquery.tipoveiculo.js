@@ -1,20 +1,36 @@
 $("#formTipoVeiculo").submit((e) => {
     e.preventDefault();
 
-    alert($("#tipoVeiculo").val());
+    var tipo_veiculo = $("#tipoVeiculo");
 
-    /*$.ajax({
-        url: '/tipo-veiculo/salvar',
-        method: 'POST',
-        dataType: 'json',
-        data: {
-            descricao: $("#tipoVeiculo").val()
-        },
-        success: ((result) => {
-            alert(`SUCCESS: ${result.response_data}`);
-        }),
-        error: ((result) => {
-            alert(`ERRO: ${result.response_data}`);
-        })
-    });*/
+    if(tipo_veiculo.val() == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Campos Vazios!',
+        });
+    } else {
+        $.ajax({
+            url: '/tipo-veiculo/salvar',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                tipo_veiculo: tipo_veiculo.val()
+            },
+            success: ((result) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Tipo Veículo Cadastrado!',
+                });
+
+                tipo_veiculo.val("");
+            }),
+            error: ((result) => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao Cadastrar!',
+                    text: 'Ocorreu um erro inesperado ao tentar cadastrar um tipo de veículo, tente novamente mais tarde.'
+                });
+            })
+        });
+    }
 });

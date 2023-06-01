@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
 
+use App\Model\TipoVeiculoModel;
+
 class TipoVeiculoController extends Controller {
 
 	public static function form() 
@@ -11,6 +13,10 @@ class TipoVeiculoController extends Controller {
 
 	public static function salvar() 
 	{
+		$model = new TipoVeiculoModel();
 
+		$model->descricao = $_POST["tipo_veiculo"];
+		$model->id_quem_registrou = $_SESSION["motorsgg_logged"][0]->id;
+		parent::setResponseAsJSON($model->salvar());
 	}
 }
