@@ -69,6 +69,11 @@ switch($parse_uri) {
         DashboardController::index();
     break;
 
+    // == [OK] == Query's
+    case "/get/all/combustivel":
+        CombustivelController::getAllRows();
+    break;
+
     // == [OK] == Rotas de Backup
     case "/exportar":
         BackupController::export();

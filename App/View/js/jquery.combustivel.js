@@ -34,3 +34,21 @@ $("#formCombustivel").submit((e) => {
         });
     }
 });
+
+$(document).ready((e) => {
+    $.ajax({
+        url: '/get/all/combustivel',
+        method: 'POST',
+        dataType: 'json',
+        success: ((result) => {
+            alert("ok");
+        }),
+        error: ((result) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao Cadastrar!',
+                text: 'Ocorreu um erro inesperado ao tentar carregar os dados da tabela, tente novamente mais tarde.'
+            });
+        })
+    });
+});

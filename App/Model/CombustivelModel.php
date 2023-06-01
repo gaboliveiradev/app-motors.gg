@@ -11,4 +11,10 @@ class CombustivelModel extends Model {
 		$dao = new CombustivelDAO();
 		return ($this->id == null) ? $dao->insert($this) : $dao->update($this);
 	}
+
+	public static function getAllRows() 
+	{
+		$dao = new CombustivelDAO();
+		return $dao->getAllRows();
+	}
 }

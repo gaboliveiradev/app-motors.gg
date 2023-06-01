@@ -8,6 +8,7 @@ class CombustivelController extends Controller {
 	public static function form() 
 	{
 		parent::isAuthenticated();
+		$model = new CombustivelModel();
 		parent::render("combustivel/cr_combustivel");
 	}
 
@@ -18,5 +19,11 @@ class CombustivelController extends Controller {
 		$model->descricao = $_POST['combustivel'];
 		$model->id_quem_registrou = $_SESSION["motorsgg_logged"][0]->id;
 		parent::setResponseAsJSON($model->salvar());
+	}
+
+	public static function getAllRows() 
+	{
+		$model = new CombustivelModel();
+		parent::setResponseAsJSON($model->getAllRows());
 	}
 }
