@@ -34,6 +34,22 @@
         </form>
       </div>
     </section>
+    <section class="sc__table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOME</th>
+            <th scope="col">CADASTRADO EM</th>
+            <th scope="col">ATUALIZADO EM</th>
+            <th scope="col">OPERADOR</th>
+          </tr>
+        </thead>
+        <tbody id="body__table">
+          
+        </tbody>
+      </table>
+    </section>
   </main>
 
   <footer>

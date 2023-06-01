@@ -41,7 +41,20 @@ $(document).ready((e) => {
         method: 'POST',
         dataType: 'json',
         success: ((result) => {
-            alert("ok");
+            var tbody = $("#body__table");
+            var indiceJson = Object.keys(result.response_data).length;
+            
+            for(var i = 0; i < indiceJson; i++) {
+                var tr = $(`<tr>
+                    <td id="id">${result.response_data[i].id}</td>
+                    <td id="nome">${result.response_data[i].descricao}</td>
+                    <td id="cadastrado_em">${result.response_data[i].data_cadastro}</td>
+                    <td id="atualizado_em">${result.response_data[i].data_atualizado}</td>
+                    <td id="operador">${result.response_data[i].operador}</td>
+                </tr>`);
+
+                tbody.append(tr);
+            }
         }),
         error: ((result) => {
             Swal.fire({
