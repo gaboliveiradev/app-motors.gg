@@ -11,4 +11,10 @@ class FabricanteModel extends Model {
 		$dao = new FabricanteDAO();
 		return ($this->id == null) ? $dao->insert($this) : $dao->update($this);
 	}
+
+	public function getAllRows() 
+	{
+		$dao = new FabricanteDAO();
+		return $dao->getAllRows();
+	}
 }

@@ -23,6 +23,7 @@ class CombustivelController extends Controller {
 
 	public static function getAllRows() 
 	{
+		parent::isAuthenticated();
 		$model = new CombustivelModel();
 		parent::setResponseAsJSON($model->getAllRows());
 	}
