@@ -55,4 +55,15 @@ class CombustivelDAO extends DAO {
             return false;
         }
     }
+
+    public function getById(int $id) 
+    {
+        $sql = "SELECT * FROM Combustivel WHERE id = ?";
+            
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return $stmt->fetchObject("App\Model\CombustivelModel");
+    }
 }
