@@ -44,7 +44,7 @@
             <th scope="col" class="text-center">OPERADOR</th>
             <th scope="col" class="text-center">CADASTRADO EM</th>
             <th scope="col" class="text-center">ATUALIZADO EM</th>
-            <th scope="col" colspan="2" class="text-center w-30">AÇÃO</th>
+            <th scope="col" colspan="2" class="text-center w-30 teste">AÇÃO</th>
           </tr>
         </thead>
         <tbody id="body__table">

@@ -39,4 +39,15 @@ class CombustivelDAO extends DAO {
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
+
+    public function delete(int $id) 
+    {
+        $sql = "UPDATE combustivel SET ativo = 0 WHERE id = ?";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
 }

@@ -23,10 +23,12 @@ switch($parse_uri) {
         UsuarioController::autenticar();
     break;
 
+
     // == [OK] == Rotas de Veiculo
     case "/veiculo/form":
         VeiculoController::form();
     break;
+
 
     // == [OK] == Rotas de Combustivel
     case "/combustivel/form":
@@ -37,6 +39,11 @@ switch($parse_uri) {
         CombustivelController::salvar();
     break;
 
+    case "/combustivel/deletar":
+        CombustivelController::deletar();
+    break;
+
+
     // == [OK] == Rotas de Fabricante
     case "/fabricante/form":
         FabricanteController::form();
@@ -45,6 +52,7 @@ switch($parse_uri) {
     case "/fabricante/salvar":
         FabricanteController::salvar();
     break;
+
 
     // == [OK] == Rotas de Marca
     case "/marca/form":
@@ -55,6 +63,7 @@ switch($parse_uri) {
         MarcaController::salvar();
     break;
 
+
     // == [OK] == Rotas de Tipo Veículo
     case "/tipo-veiculo/form":
         TipoVeiculoController::form();
@@ -64,10 +73,12 @@ switch($parse_uri) {
         TipoVeiculoController::salvar();
     break;
 
+
     // == [OK] == Rotas de Dashboard
     case "/dashboard":
         DashboardController::index();
     break;
+
 
     // == [OK] == Query's
     case "/get/all/combustivel":
@@ -86,6 +97,7 @@ switch($parse_uri) {
         TipoVeiculoController::getAllRows();
     break;
 
+
     // == [OK] == Rotas de Backup
     case "/exportar":
         BackupController::export();
@@ -95,6 +107,8 @@ switch($parse_uri) {
         BackupController::import();
     break;
 
+
+    // == [OK] == Rota Padrão
     default:
         header("Location: /login");
     break;

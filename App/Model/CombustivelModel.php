@@ -17,4 +17,10 @@ class CombustivelModel extends Model {
 		$dao = new CombustivelDAO();
 		return $dao->getAllRows();
 	}
+
+	public static function deletar(int $id) 
+	{
+		$dao = new CombustivelDAO();
+		return $dao->delete( (int) $id );
+	}
 }
