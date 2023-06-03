@@ -35,15 +35,15 @@
       </div>
     </section>
     <section class="sc__table">
-      <table class="table">
+      <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">NOME</th>
-            <th scope="col">OPERADOR</th>
-            <th scope="col">CADASTRADO EM</th>
-            <th scope="col">ATUALIZADO EM</th>
-            <th scope="col" class="text-center">AÇÃO</th>
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">NOME</th>
+            <th scope="col" class="text-center">OPERADOR</th>
+            <th scope="col" class="text-center">CADASTRADO EM</th>
+            <th scope="col" class="text-center">ATUALIZADO EM</th>
+            <th scope="col" colspan="2" class="text-center w-30">AÇÃO</th>
           </tr>
         </thead>
         <tbody id="body__table">

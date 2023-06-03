@@ -14,3 +14,7 @@ main {
 .body__form {
     padding: 10px;
 }
+
+.w-30 {
+    width: 30% !important;
+}

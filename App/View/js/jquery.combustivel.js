@@ -55,7 +55,7 @@ function getAll() {
                 var data_hora_cadastrado = (result.response_data[i].data_atualizado == null) ? `${result.response_data[i].data_cadastro} às ${result.response_data[i].hora_cadastro}` : result.response_data[i].data_atualizado;
 
                 var tr = $(`<tr>
-                    <td class="id">${result.response_data[i].id}</td>
+                    <td class="id text-center">${result.response_data[i].id}</td>
                     <td class="nome">${result.response_data[i].descricao}</td>
                     <td class="operador">${result.response_data[i].operador}</td>
                     <td class="cadastrado_em">${result.response_data[i].data_cadastro} às ${result.response_data[i].hora_cadastro}</td>
