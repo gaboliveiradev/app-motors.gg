@@ -23,6 +23,7 @@ $("#formCombustivel").submit((e) => {
                 });
 
                 combu.val("");
+                getAll();
             }),
             error: ((result) => {
                 Swal.fire({
@@ -36,6 +37,10 @@ $("#formCombustivel").submit((e) => {
 });
 
 $(document).ready((e) => {
+    getAll();
+});
+
+function getAll() {
     $.ajax({
         url: '/get/all/combustivel',
         method: 'POST',
@@ -43,14 +48,20 @@ $(document).ready((e) => {
         success: ((result) => {
             var tbody = $("#body__table");
             var indiceJson = Object.keys(result.response_data).length;
+
+            tbody.empty();
             
             for(var i = 0; i < indiceJson; i++) {
+                var data_hora_cadastrado = (result.response_data[i].data_atualizado == null) ? `${result.response_data[i].data_cadastro} às ${result.response_data[i].hora_cadastro}` : result.response_data[i].data_atualizado;
+
                 var tr = $(`<tr>
-                    <td id="id">${result.response_data[i].id}</td>
-                    <td id="nome">${result.response_data[i].descricao}</td>
-                    <td id="cadastrado_em">${result.response_data[i].data_cadastro}</td>
-                    <td id="atualizado_em">${result.response_data[i].data_atualizado}</td>
-                    <td id="operador">${result.response_data[i].operador}</td>
+                    <td class="id">${result.response_data[i].id}</td>
+                    <td class="nome">${result.response_data[i].descricao}</td>
+                    <td class="operador">${result.response_data[i].operador}</td>
+                    <td class="cadastrado_em">${result.response_data[i].data_cadastro} às ${result.response_data[i].hora_cadastro}</td>
+                    <td class="atualizado_em">${data_hora_cadastrado}</td>
+                    <td class="editar"><a href=""><i class="bi bi-pencil-square"></i></a></td>
+                    <td class="deletar"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
                 </tr>`);
 
                 tbody.append(tr);
@@ -64,4 +75,4 @@ $(document).ready((e) => {
             });
         })
     });
-});
+}

@@ -40,9 +40,10 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">NOME</th>
+            <th scope="col">OPERADOR</th>
             <th scope="col">CADASTRADO EM</th>
             <th scope="col">ATUALIZADO EM</th>
-            <th scope="col">OPERADOR</th>
+            <th scope="col" class="text-center">AÇÃO</th>
           </tr>
         </thead>
         <tbody id="body__table">
