@@ -36,10 +36,6 @@ $("#formFabricante").submit((e) => {
     }
 });
 
-$(document).ready((e) => {
-    getAll();
-});
-
 function getAll() {
     $.ajax({
         url: '/get/all/fabricante',
@@ -84,3 +80,50 @@ function getAll() {
         })
     });
 }
+
+function updateById(id) {
+
+}
+
+function deleteById(id) {
+    $.ajax({
+        url: `/fabricante/deletar?id=${id}`,
+        method: 'GET',
+        dataType: 'json',
+        success: ((result) => {
+            if(result.response_data == false) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao Deletar!',
+                    text: 'Atualize a página e tente novamente. Se o erro persistir, contate o desenvolvedor.'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Fabricante Deletado!',
+                });
+    
+                getAll();
+            }
+        }),
+        error: ((result) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao Deletar!',
+                text: 'Ocorreu um erro inesperado ao tentar deletar um fabricante, tente novamente mais tarde.'
+            });
+        })
+    });
+}
+
+$(document).ready((e) => {
+    getAll();
+
+    $(document).on('click', '.editar', function() {
+        updateById(this.id);
+    });
+    
+    $(document).on('click', '.deletar', function() {
+        deleteById(this.id);
+    });
+});

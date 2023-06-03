@@ -26,4 +26,10 @@ class FabricanteController extends Controller {
 		$model = new FabricanteModel();
 		parent::setResponseAsJSON($model->getAllRows());
 	}
+
+	public static function deletar() 
+	{
+		$model = new FabricanteModel();
+		(isset($_GET['id'])) ? parent::setResponseAsJSON($model->deletar( (int) $_GET['id'])) : parent::setResponseAsJSON(false);
+	}
 }

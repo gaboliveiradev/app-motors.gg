@@ -53,6 +53,10 @@ switch($parse_uri) {
         FabricanteController::salvar();
     break;
 
+    case "/fabricante/deletar":
+        FabricanteController::deletar();
+    break;
+
 
     // == [OK] == Rotas de Marca
     case "/marca/form":

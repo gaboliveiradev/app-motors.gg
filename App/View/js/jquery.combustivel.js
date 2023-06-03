@@ -91,12 +91,20 @@ function deleteById(id) {
         method: 'GET',
         dataType: 'json',
         success: ((result) => {
-            Swal.fire({
-                icon: 'success',
-                title: 'Combustível Deletado!',
-            });
-
-            getAll();
+            if(result.response_data == false) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao Deletar!',
+                    text: 'Atualize a página e tente novamente. Se o erro persistir, contate o desenvolvedor.'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Combustível Deletado!',
+                });
+    
+                getAll();
+            }
         }),
         error: ((result) => {
             Swal.fire({

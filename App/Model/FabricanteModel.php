@@ -17,4 +17,10 @@ class FabricanteModel extends Model {
 		$dao = new FabricanteDAO();
 		return $dao->getAllRows();
 	}
+
+	public function deletar(int $id) 
+	{
+		$dao = new FabricanteDAO();
+		return $dao->deletar( (int) $id);
+	}
 }

@@ -2,6 +2,7 @@
 namespace App\DAO;
 
 use App\Model\CombustivelModel;
+use Exception;
 use \PDO;
 
 class CombustivelDAO extends DAO {
@@ -40,14 +41,18 @@ class CombustivelDAO extends DAO {
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function delete(int $id) 
+    public function delete(int $id) : bool
     {
-        $sql = "UPDATE combustivel SET ativo = 0 WHERE id = ?";
+        try {
+            $sql = "UPDATE combustivel SET ativo = 0 WHERE id = ?";
 
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_CLASS);
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
+    
+            return true;
+        } catch (Exception $err) {
+            return false;
+        }
     }
 }
