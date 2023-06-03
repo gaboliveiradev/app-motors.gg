@@ -23,4 +23,11 @@ class CombustivelModel extends Model {
 		$dao = new CombustivelDAO();
 		return $dao->delete( (int) $id );
 	}
+
+	public function getById(int $id) {
+		$dao = new CombustivelDAO();
+
+		$obj = $dao->getById($id);
+		return ($obj) ? $obj : new CombustivelDAO();
+	}
 }
