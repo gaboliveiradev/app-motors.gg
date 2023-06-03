@@ -17,4 +17,10 @@ class MarcaModel extends Model {
 		$dao = new MarcaDAO();
 		return $dao->getAllRows();
 	}
+
+	public function deletar(int $id)
+	{
+		$dao = new MarcaDAO();
+		return $dao->deletar((int) $id);
+	}
 }

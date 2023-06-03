@@ -2,8 +2,8 @@
 namespace App\DAO;
 
 use App\Model\FabricanteModel;
-use Exception;
 use \PDO;
+use PDOException;
 
 class FabricanteDAO extends DAO {
 
@@ -51,7 +51,7 @@ class FabricanteDAO extends DAO {
             $stmt->execute();
     
             return true;
-        } catch (Exception $err) {
+        } catch (PDOException $err) {
             return false;
         }
     }

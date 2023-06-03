@@ -67,6 +67,10 @@ switch($parse_uri) {
         MarcaController::salvar();
     break;
 
+    case "/marca/deletar":
+        MarcaController::deletar();
+    break;
+
 
     // == [OK] == Rotas de Tipo Veículo
     case "/tipo-veiculo/form":

@@ -29,6 +29,7 @@ class FabricanteController extends Controller {
 
 	public static function deletar() 
 	{
+		parent::isAuthenticated();
 		$model = new FabricanteModel();
 		(isset($_GET['id'])) ? parent::setResponseAsJSON($model->deletar( (int) $_GET['id'])) : parent::setResponseAsJSON(false);
 	}

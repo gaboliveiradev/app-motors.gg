@@ -2,8 +2,8 @@
 namespace App\DAO;
 
 use App\Model\CombustivelModel;
-use Exception;
 use \PDO;
+use PDOException;
 
 class CombustivelDAO extends DAO {
 
@@ -51,7 +51,7 @@ class CombustivelDAO extends DAO {
             $stmt->execute();
     
             return true;
-        } catch (Exception $err) {
+        } catch (PDOException $err) {
             return false;
         }
     }

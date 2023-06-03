@@ -26,4 +26,11 @@ class MarcaController extends Controller {
 		$model = new MarcaModel();
 		parent::setResponseAsJSON($model->getAllRows());
 	}
+
+	public static function deletar() 
+	{
+		parent::isAuthenticated();
+		$model = new MarcaModel();
+		(isset($_GET['id'])) ? parent::setResponseAsJSON($model->deletar((int) $_GET['id'])) : parent::setResponseAsJSON(false);
+	}
 }
