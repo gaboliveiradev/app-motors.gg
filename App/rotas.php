@@ -73,8 +73,17 @@ switch($parse_uri) {
     case "/get/all/combustivel":
         CombustivelController::getAllRows();
     break;
+
     case "/get/all/fabricante":
         FabricanteController::getAllRows();
+    break;
+
+    case "/get/all/marca":
+        MarcaController::getAllRows();
+    break;
+
+    case "/get/all/tipo-veiculo":
+        TipoVeiculoController::getAllRows();
     break;
 
     // == [OK] == Rotas de Backup

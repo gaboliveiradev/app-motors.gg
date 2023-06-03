@@ -11,4 +11,10 @@ class MarcaModel extends Model {
 		$dao = new MarcaDAO();
 		return ($this->id == null) ? $dao->insert($this) : $dao->update($this);
 	}
+
+	public function getAllRows() 
+	{
+		$dao = new MarcaDAO();
+		return $dao->getAllRows();
+	}
 }

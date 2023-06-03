@@ -19,4 +19,11 @@ class MarcaController extends Controller {
 		$model->id_quem_registrou = $_SESSION["motorsgg_logged"][0]->id;
 		parent::setResponseAsJSON($model->salvar());
 	}
+
+	public static function getAllRows()
+	{
+		parent::isAuthenticated();
+		$model = new MarcaModel();
+		parent::setResponseAsJSON($model->getAllRows());
+	}
 }

@@ -11,4 +11,10 @@ class TipoVeiculoModel extends Model {
 		$dao = new TipoVeiculoDAO();
 		return ($this->id == null) ? $dao->insert($this) : $dao->update($this);
 	}
+
+	public function getAllRows() 
+	{
+		$dao = new TipoVeiculoDAO();
+		return $dao->getAllRows();
+	}
 }
