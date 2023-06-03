@@ -60,8 +60,8 @@ function getAll() {
                     <td class="operador">${result.response_data[i].operador}</td>
                     <td class="cadastrado_em">${result.response_data[i].data_cadastro} às ${result.response_data[i].hora_cadastro}</td>
                     <td class="atualizado_em">${data_hora_cadastrado}</td>
-                    <td class="editar text-center"><a href=""><i class="bi bi-pencil-square"></i></a></td>
-                    <td class="deletar text-center"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
+                    <td id="${result.response_data[i].id}" class="editar text-center"><a href=""><i class="bi bi-pencil-square"></i></a></td>
+                    <td id="${result.response_data[i].id}" class="deletar text-center"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
                 </tr>`);
 
                 tbody.append(tr);
