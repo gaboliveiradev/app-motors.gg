@@ -3,6 +3,7 @@ namespace App\DAO;
 
 use App\Model\TipoVeiculoModel;
 use \PDO;
+use PDOException;
 
 class TipoVeiculoDAO extends DAO {
 
@@ -38,5 +39,20 @@ class TipoVeiculoDAO extends DAO {
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    public function deletar(int $id) : bool
+    {
+        try {
+            $sql = "UPDATE tipo_veiculo SET ativo = 0 WHERE id = ?";
+
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
+    
+            return true;
+        } catch (PDOException $err) {
+            return false;
+        }
     }
 }

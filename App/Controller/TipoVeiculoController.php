@@ -26,4 +26,11 @@ class TipoVeiculoController extends Controller {
 		$model = new TipoVeiculoModel();
 		parent::setResponseAsJSON($model->getAllRows());
 	}
+
+	public static function deletar()
+	{
+		parent::isAuthenticated();
+		$model = new TipoVeiculoModel();
+		(isset($_GET['id'])) ? parent::setResponseAsJSON($model->deletar((int) $_GET['id'])) : parent::setResponseAsJSON(false);
+	}
 }

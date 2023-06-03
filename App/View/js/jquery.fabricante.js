@@ -95,7 +95,7 @@ function deleteById(id) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Erro ao Deletar!',
-                    text: 'Atualize a página e tente novamente. Se o erro persistir, contate o desenvolvedor.'
+                    text: 'Atualize a página e tente novamente. Se o erro persistir, contate-a central de atendimento e suporte Motors.GG.'
                 });
             } else {
                 Swal.fire({
