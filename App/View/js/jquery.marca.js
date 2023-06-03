@@ -36,10 +36,6 @@ $("#formMarca").submit((e) => {
     }
 });
 
-$(document).ready((e) => {
-    getAll();
-});
-
 function getAll() {
     $.ajax({
         url: '/get/all/marca',
@@ -84,3 +80,50 @@ function getAll() {
         })
     });
 }
+
+function updateById(id) {
+
+}
+
+function deleteById(id) {
+    $.ajax({
+        url: `/marca/deletar?id=${id}`,
+        method: 'GET',
+        dataType: 'json',
+        success: ((result) => {
+            if(result.response_data == false) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao Deletar!',
+                    text: 'Atualize a página e tente novamente. Se o erro persistir, contate o desenvolvedor.'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Marca Deletada!',
+                });
+    
+                getAll();
+            }
+        }),
+        error: ((result) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao Deletar!',
+                text: 'Ocorreu um erro inesperado ao tentar deletar uma marca, tente novamente mais tarde.'
+            });
+        })
+    });
+}
+
+$(document).ready((e) => {
+    getAll();
+
+    $(document).on('click', '.editar', function() {
+        updateById(this.id);
+    });
+    
+    $(document).on('click', '.deletar', function() {
+        deleteById(this.id);
+    });
+});
