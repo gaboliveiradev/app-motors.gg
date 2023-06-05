@@ -13,10 +13,11 @@ class FabricanteController extends Controller {
 
 	public static function salvar() 
 	{
+		parent::isAuthenticated();
 		$model = new FabricanteModel();
-
 		$model->descricao = $_POST['fabricante'];
 		$model->id_quem_registrou = $_SESSION["motorsgg_logged"][0]->id;
+		if(isset($_POST['id'])) $model->id = $_POST['id'];
 		parent::setResponseAsJSON($model->salvar());
 	}
 

@@ -24,9 +24,26 @@ class FabricanteDAO extends DAO {
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function update(FabricanteModel $model) 
+    public function update(FabricanteModel $model) : bool
     {
+        try {
+            $sql = "UPDATE Fabricante SET descricao = ? WHERE id = ?;";
 
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->descricao);
+            $stmt->bindValue(2, $model->id);
+            $stmt->execute();
+
+            $sql = "UPDATE Fabricante SET data_atualizado = current_timestamp() WHERE id = ?;";
+
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->id);
+            $stmt->execute();
+    
+            return true;
+        } catch (PDOException $err) {
+            return false;
+        }
     }
 
     public function getAllRows() 

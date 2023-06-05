@@ -4,7 +4,7 @@ namespace App\Model;
 use App\DAO\CombustivelDAO;
 
 class CombustivelModel extends Model {
-	public $id = null, $descricao, $data_cadastro, $id_quem_registrou, $ativo;
+	public $id, $descricao, $data_cadastro, $id_quem_registrou, $ativo;
 
 	public function salvar() 
 	{
