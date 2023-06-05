@@ -18,4 +18,10 @@ class VeiculoModel extends Model {
 		$dao = new VeiculoDAO();
 		return $dao->getAllRows();
 	}
+
+	public function deletar(int $id) 
+	{
+		$dao = new VeiculoDAO();
+		return $dao->deletar((int) $id);
+	}
 }

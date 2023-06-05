@@ -37,6 +37,13 @@ class VeiculoController extends Controller {
 		parent::setResponseAsJSON($model->salvar());
 	}
 
+	public static function deletar() 
+	{
+		parent::isAuthenticated();
+		$model = new VeiculoModel();
+		(isset($_GET['id'])) ? parent::setResponseAsJSON($model->deletar((int) $_GET['id'])) : parent::setResponseAsJSON(false);
+	}
+
 	public static function getAllRows()
 	{
 		parent::isAuthenticated();

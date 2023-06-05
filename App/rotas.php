@@ -106,6 +106,10 @@ switch($parse_uri) {
         VeiculoController::salvar();
     break;
 
+    case "/veiculo/deletar":
+        VeiculoController::deletar();
+    break;
+
 
     // == [OK] == Rotas de Dashboard
     case "/dashboard":

@@ -67,11 +67,26 @@ class VeiculoDAO extends DAO {
         JOIN tipo_veiculo t ON (t.id = v.id_tipo)
         JOIN Combustivel c ON (c.id = v.id_combustivel)
         JOIN detalhes_veiculo d ON (d.id = v.id_detalhes)
-        JOIN Usuario u ON (u.id = v.id_quem_registrou);";
+        JOIN Usuario u ON (u.id = v.id_quem_registrou) WHERE v.ativo = 1;";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    public function deletar(int $id) : bool
+    {
+        try {
+            $sql = "UPDATE veiculo SET ativo = 0 WHERE id = ?";
+
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
+    
+            return true;
+        } catch (PDOException $err) {
+            return false;
+        }
     }
 }

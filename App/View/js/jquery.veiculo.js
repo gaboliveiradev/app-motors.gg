@@ -208,7 +208,7 @@ function getAll() {
                 }
             } else {
                 var tr = $(`<tr>
-                    <td colspan="6" class="text-center">NENHUM REGISTRO</td>
+                    <td colspan="10" class="text-center">NENHUM REGISTRO</td>
                 </tr>`);
 
                 tbody.append(tr);
@@ -219,6 +219,37 @@ function getAll() {
                 icon: 'error',
                 title: 'Erro ao Carregar Dados!',
                 text: 'Ocorreu um erro inesperado ao tentar carregar os dados da tabela, tente novamente mais tarde.'
+            });
+        })
+    });
+}
+
+function deleteById(id) {
+    $.ajax({
+        url: `/veiculo/deletar?id=${id}`,
+        method: 'GET',
+        dataType: 'json',
+        success: ((result) => {
+            if(result.response_data == false) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao Deletar!',
+                    text: 'Atualize a página e tente novamente. Se o erro persistir, contate-a central de atendimento e suporte Motors.GG.'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Veículo Deletado!',
+                });
+    
+                getAll();
+            }
+        }),
+        error: ((result) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao Deletar!',
+                text: 'Ocorreu um erro inesperado ao tentar deletar um veículo, tente novamente mais tarde.'
             });
         })
     });
@@ -235,5 +266,9 @@ $(document).ready((e) => {
     $("#cadastrar").click((e) => {
         e.preventDefault();
         insert();
+    });
+
+    $(document).on('click', '.deletar', function() {
+        deleteById(this.id);
     });
 });
