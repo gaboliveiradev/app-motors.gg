@@ -107,6 +107,27 @@
         </form>
       </div>
     </section>
+
+    <section class="sc__table">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">MODELO</th>
+            <th scope="col" class="text-center">ANO</th>
+            <th scope="col" class="text-center">NUM CHASSI</th>
+            <th scope="col" class="text-center">PLACA</th>
+            <th scope="col" class="text-center">CADASTRADO EM</th>
+            <th scope="col" class="text-center">ATUALIZADO EM</th>
+            <th scope="col" class="text-center">OPERADOR</th>
+            <th scope="col" colspan="2" class="text-center w-30">AÇÃO</th>
+          </tr>
+        </thead>
+        <tbody id="body__table">
+          
+        </tbody>
+      </table>
+    </section>
   </main>
 
   <footer>

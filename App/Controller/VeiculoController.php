@@ -36,4 +36,11 @@ class VeiculoController extends Controller {
 		$model->sinistrado = $_POST['sinistrado'];
 		parent::setResponseAsJSON($model->salvar());
 	}
+
+	public static function getAllRows()
+	{
+		parent::isAuthenticated();
+		$model = new VeiculoModel();
+		parent::setResponseAsJSON($model->getAllRows());
+	}
 }

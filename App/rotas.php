@@ -130,6 +130,10 @@ switch($parse_uri) {
         TipoVeiculoController::getAllRows();
     break;
 
+    case "/get/all/veiculo":
+        VeiculoController::getAllRows();
+    break;
+
 
     // == [OK] == Rotas de Backup
     case "/exportar":

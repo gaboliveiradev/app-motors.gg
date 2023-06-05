@@ -12,4 +12,10 @@ class VeiculoModel extends Model {
 		$dao = new VeiculoDAO();
 		return ($this->id == null) ? $dao->insert($this) : $dao->update($this);
 	}
+
+	public function getAllRows()
+	{
+		$dao = new VeiculoDAO();
+		return $dao->getAllRows();
+	}
 }
