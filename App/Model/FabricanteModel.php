@@ -23,4 +23,12 @@ class FabricanteModel extends Model {
 		$dao = new FabricanteDAO();
 		return $dao->deletar( (int) $id);
 	}
+
+	public function getByID(int $id) 
+	{
+		$dao = new FabricanteDAO();
+
+		$obj = $dao->getById((int) $id);
+		return ($obj) ? $obj : new FabricanteModel();
+	}
 }

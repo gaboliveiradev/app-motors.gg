@@ -34,4 +34,11 @@ class FabricanteController extends Controller {
 		$model = new FabricanteModel();
 		(isset($_GET['id'])) ? parent::setResponseAsJSON($model->deletar( (int) $_GET['id'])) : parent::setResponseAsJSON(false);
 	}
+
+	public static function getById() 
+	{
+		parent::isAuthenticated();
+		$model = new FabricanteModel();
+		(isset($_GET['id'])) ? parent::setResponseAsJSON($model->getById( (int) $_GET['id'] )) : parent::setResponseAsJSON(false);
+	}
 }

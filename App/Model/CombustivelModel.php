@@ -4,7 +4,7 @@ namespace App\Model;
 use App\DAO\CombustivelDAO;
 
 class CombustivelModel extends Model {
-	public $id, $descricao, $data_cadastro, $id_quem_registrou, $ativo;
+	public $id = null, $descricao, $data_cadastro, $id_quem_registrou, $ativo;
 
 	public function salvar() 
 	{
@@ -27,7 +27,7 @@ class CombustivelModel extends Model {
 	public function getById(int $id) {
 		$dao = new CombustivelDAO();
 
-		$obj = $dao->getById($id);
+		$obj = $dao->getById((int) $id);
 		return ($obj) ? $obj : new CombustivelDAO();
 	}
 }

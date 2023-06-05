@@ -72,4 +72,15 @@ class FabricanteDAO extends DAO {
             return false;
         }
     }
+
+    public function getById(int $id) 
+    {
+        $sql = "SELECT * FROM Fabricante WHERE id = ?";
+            
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return $stmt->fetchObject("App\Model\FabricanteModel");
+    }
 }

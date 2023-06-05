@@ -1,7 +1,18 @@
-$("#formFabricante").submit((e) => {
-    e.preventDefault();
+var btn_cadastrar = $("#cadastrar");
+var btn_atualizar = $("#atualizar");
+var fabricante = $("#fabricante");
 
-    var fabricante = $("#fabricante");
+function update(id) {
+    btn_atualizar.click((e) => {
+        e.preventDefault();
+        insert(id);
+        btn_atualizar.hide();
+        btn_cadastrar.show();
+    });
+}
+
+function insert(id = null) {
+    var title = (id == null) ? "Fabricante Cadastrado!" : "Fabricante Atualizado!";
 
     if(fabricante.val() == "") {
         Swal.fire({
@@ -14,12 +25,15 @@ $("#formFabricante").submit((e) => {
             method: 'POST',
             dataType: 'json',
             data: {
-                fabricante: fabricante.val().toUpperCase()
+                fabricante: fabricante.val().toUpperCase(),
+                id: id
             },
             success: ((result) => {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Fabricante Cadastrado!',
+                    title: title,
+                }).then((e) => {
+                    if (e.isConfirmed) window.location.reload(true);
                 });
 
                 fabricante.val("");
@@ -34,7 +48,7 @@ $("#formFabricante").submit((e) => {
             })
         });
     }
-});
+};
 
 function getAll() {
     $.ajax({
@@ -74,15 +88,33 @@ function getAll() {
         error: ((result) => {
             Swal.fire({
                 icon: 'error',
-                title: 'Erro ao Cadastrar!',
+                title: 'Erro ao Carregar Dados!',
                 text: 'Ocorreu um erro inesperado ao tentar carregar os dados da tabela, tente novamente mais tarde.'
             });
         })
     });
 }
 
-function updateById(id) {
+function getById(id) {
+    $.ajax({
+        url: `/fabricante/get-by-id?id=${id}`,
+        method: 'GET',
+        dataType: 'json',
+        success: ((result) => {
+            fabricante.val(result.response_data.descricao);
+            btn_cadastrar.hide();
+            btn_atualizar.show();
 
+            update(id);
+        }),
+        error: ((result) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao Buscar!',
+                text: 'Ocorreu um erro inesperado ao tentar buscar um fabricante, tente novamente mais tarde.'
+            });
+        })
+    });
 }
 
 function deleteById(id) {
@@ -119,8 +151,13 @@ function deleteById(id) {
 $(document).ready((e) => {
     getAll();
 
+    $("#cadastrar").click((e) => {
+        e.preventDefault();
+        insert();
+    });
+
     $(document).on('click', '.editar', function() {
-        updateById(this.id);
+        getById(this.id);
     });
     
     $(document).on('click', '.deletar', function() {

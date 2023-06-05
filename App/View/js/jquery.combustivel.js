@@ -6,6 +6,8 @@ function update(id) {
     btn_atualizar.click((e) => {
         e.preventDefault();
         insert(id);
+        btn_atualizar.hide();
+        btn_cadastrar.show();
     });
 }
 
@@ -30,6 +32,9 @@ function insert(id = null) {
                 Swal.fire({
                     icon: 'success',
                     title: title,
+                    confirmButtonText: 'OK',
+                }).then((e) => {
+                    if (e.isConfirmed) window.location.reload(true);
                 });
 
                 combu.val("");
@@ -97,11 +102,11 @@ function getById(id) {
         method: 'GET',
         dataType: 'json',
         success: ((result) => {
-            $('#combustivel').val(result.response_data.descricao);
+            combu.val(result.response_data.descricao);
             btn_cadastrar.hide();
             btn_atualizar.show();
 
-            update(result.response_data.id);
+            update(id);
         }),
         error: ((result) => {
             Swal.fire({

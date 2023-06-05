@@ -60,6 +60,10 @@ switch($parse_uri) {
         FabricanteController::deletar();
     break;
 
+    case "/fabricante/get-by-id":
+        FabricanteController::getById();
+    break;
+
 
     // == [OK] == Rotas de Marca
     case "/marca/form":
