@@ -46,13 +46,14 @@ class MarcaDAO extends DAO {
         }
     }
 
-    public function getAllRows() 
+    public function getAllRows(int $ativo) 
     {
         $sql = "SELECT m.id, m.descricao, DATE_FORMAT(m.data_cadastro,'%d/%m/%Y') as data_cadastro, 
         DATE_FORMAT(m.data_cadastro,'%Hh %im') as hora_cadastro, DATE_FORMAT(m.data_atualizado,'%d/%m/%Y') as data_atualizado, DATE_FORMAT(m.data_atualizado,'%Hh %im') as hora_atualizado, u.nome as operador FROM Marca m 
-        JOIN usuario u ON (u.id = m.id_quem_registrou) WHERE m.ativo = 1;";
+        JOIN usuario u ON (u.id = m.id_quem_registrou) WHERE m.ativo = ?;";
 
         $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $ativo);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
@@ -62,6 +63,12 @@ class MarcaDAO extends DAO {
     {
         try {
             $sql = "UPDATE marca SET ativo = 0 WHERE id = ?";
+
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
+
+            $sql = "UPDATE marca SET data_atualizado = current_timestamp() WHERE id = ?";
 
             $stmt = $this->conexao->prepare($sql);
             $stmt->bindValue(1, $id);

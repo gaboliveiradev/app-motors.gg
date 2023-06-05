@@ -45,7 +45,7 @@
             <th scope="col" class="text-center">NOME</th>
             <th scope="col" class="text-center">OPERADOR</th>
             <th scope="col" class="text-center">CADASTRADO EM</th>
-            <th scope="col" class="text-center">ATUALIZADO EM</th>
+            <th scope="col" class="text-center">DELETADO EM</th>
             <th scope="col" colspan="2" class="text-center w-30">AÇÃO</th>
           </tr>
         </thead>

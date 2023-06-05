@@ -67,6 +67,12 @@ class TipoVeiculoDAO extends DAO {
             $stmt = $this->conexao->prepare($sql);
             $stmt->bindValue(1, $id);
             $stmt->execute();
+
+            $sql = "UPDATE tipo_veiculo SET data_atualizado = current_timestamp() WHERE id = ?";
+
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
     
             return true;
         } catch (PDOException $err) {
