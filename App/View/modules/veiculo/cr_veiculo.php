@@ -52,6 +52,30 @@
             <label for="observacao" class="form-label">Observações</label>
             <textarea style="resize:none;" class="form-control" id="observacao" rows="3"></textarea>
           </div>
+          <div class="col-md-3">
+            <label for="placa" class="form-label">Combustível</label>
+            <select class="form-select" id="selectCombustivel" aria-label="Default select example">
+              <option selected disabled>Escolha</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="placa" class="form-label">Fabricante</label>
+            <select class="form-select" id="selectFabricante" aria-label="Default select example">
+              <option selected disabled>Escolha</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="placa" class="form-label">Marca</label>
+            <select class="form-select" id="selectMarca" aria-label="Default select example">
+              <option selected disabled>Escolha</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="placa" class="form-label">Tipo do Veículo</label>
+            <select class="form-select" id="selectTipoVeiculo" aria-label="Default select example">
+              <option selected disabled>Escolha</option>
+            </select>
+          </div>
           <div class="col-md-2 form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="revisao">
             <label class="form-check-label" for="revisao">Revisão</label>

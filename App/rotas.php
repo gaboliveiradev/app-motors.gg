@@ -82,6 +82,7 @@ switch($parse_uri) {
         MarcaController::getById();
     break;
 
+
     // == [OK] == Rotas de Tipo Veículo
     case "/tipo-veiculo/form":
         TipoVeiculoController::form();
@@ -97,6 +98,12 @@ switch($parse_uri) {
 
     case "/tipo-veiculo/get-by-id":
         TipoVeiculoController::getById();
+    break;
+    
+
+    // == [OK] == Rotas de Veículo
+    case "/veiculo/salvar":
+        VeiculoController::salvar();
     break;
 
 
