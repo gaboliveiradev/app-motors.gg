@@ -46,14 +46,15 @@ class TipoVeiculoDAO extends DAO {
         }
     }
 
-    public function getAllRows() 
+    public function getAllRows(int $ativo) 
     {
         $sql = "SELECT t.id, t.descricao, DATE_FORMAT(t.data_cadastro,'%d/%m/%Y') as data_cadastro, 
         DATE_FORMAT(t.data_cadastro,'%Hh %im') as hora_cadastro, DATE_FORMAT(t.data_atualizado,'%d/%m/%Y') as data_atualizado, 
         DATE_FORMAT(t.data_atualizado,'%Hh %im') as hora_atualizado, u.nome as operador FROM tipo_veiculo t
-        JOIN usuario u ON (u.id = t.id_quem_registrou) WHERE t.ativo = 1;";
+        JOIN usuario u ON (u.id = t.id_quem_registrou) WHERE t.ativo = ?;";
 
         $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $ativo);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);

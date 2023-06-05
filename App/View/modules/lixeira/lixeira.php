@@ -39,7 +39,7 @@
 
     <section class="sc__table">
       <table class="table table-bordered">
-        <thead>
+        <thead id="head__table">
           <tr>
             <th scope="col" class="text-center">ID</th>
             <th scope="col" class="text-center">NOME</th>
