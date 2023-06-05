@@ -26,13 +26,31 @@ class TipoVeiculoDAO extends DAO {
 
     public function update(TipoVeiculoModel $model) 
     {
+        try {
+            $sql = "UPDATE Tipo_Veiculo SET descricao = ? WHERE id = ?;";
 
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->descricao);
+            $stmt->bindValue(2, $model->id);
+            $stmt->execute();
+
+            $sql = "UPDATE Tipo_Veiculo SET data_atualizado = current_timestamp() WHERE id = ?;";
+
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->id);
+            $stmt->execute();
+    
+            return true;
+        } catch (PDOException $err) {
+            return false;
+        }
     }
 
     public function getAllRows() 
     {
         $sql = "SELECT t.id, t.descricao, DATE_FORMAT(t.data_cadastro,'%d/%m/%Y') as data_cadastro, 
-        DATE_FORMAT(t.data_cadastro,'%Hh %im') as hora_cadastro, t.data_atualizado, u.nome as operador FROM tipo_veiculo t
+        DATE_FORMAT(t.data_cadastro,'%Hh %im') as hora_cadastro, DATE_FORMAT(t.data_atualizado,'%d/%m/%Y') as data_atualizado, 
+        DATE_FORMAT(t.data_atualizado,'%Hh %im') as hora_atualizado, u.nome as operador FROM tipo_veiculo t
         JOIN usuario u ON (u.id = t.id_quem_registrou) WHERE t.ativo = 1;";
 
         $stmt = $this->conexao->prepare($sql);
@@ -54,5 +72,16 @@ class TipoVeiculoDAO extends DAO {
         } catch (PDOException $err) {
             return false;
         }
+    }
+
+    public function getById(int $id) 
+    {
+        $sql = "SELECT * FROM Tipo_Veiculo WHERE id = ?";
+            
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return $stmt->fetchObject("App\Model\TipoVeiculoModel");
     }
 }

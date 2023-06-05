@@ -1,7 +1,18 @@
-$("#formTipoVeiculo").submit((e) => {
-    e.preventDefault();
+var btn_cadastrar = $("#cadastrar");
+var btn_atualizar = $("#atualizar");
+var tipo_veiculo = $("#tipoVeiculo");
 
-    var tipo_veiculo = $("#tipoVeiculo");
+function update(id) {
+    btn_atualizar.click((e) => {
+        e.preventDefault();
+        insert(id);
+        btn_atualizar.hide();
+        btn_cadastrar.show();
+    });
+}
+
+function insert(id = null) {
+    var title = (id == null) ? "Tipo do Veículo Cadastrado!" : "Tipo do Veículo Atualizado!";
 
     if(tipo_veiculo.val() == "") {
         Swal.fire({
@@ -14,12 +25,15 @@ $("#formTipoVeiculo").submit((e) => {
             method: 'POST',
             dataType: 'json',
             data: {
-                tipo_veiculo: tipo_veiculo.val().toUpperCase()
+                tipo_veiculo: tipo_veiculo.val().toUpperCase(),
+                id: id
             },
             success: ((result) => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Tipo Veículo Cadastrado!',
+                }).then((e) => {
+                    if (e.isConfirmed) window.location.reload(true);
                 });
 
                 tipo_veiculo.val("");
@@ -34,7 +48,7 @@ $("#formTipoVeiculo").submit((e) => {
             })
         });
     }
-});
+};
 
 function getAll() {
     $.ajax({
@@ -81,8 +95,26 @@ function getAll() {
     });
 }
 
-function updateById(id) {
+function getById(id) {
+    $.ajax({
+        url: `/tipo-veiculo/get-by-id?id=${id}`,
+        method: 'GET',
+        dataType: 'json',
+        success: ((result) => {
+            tipo_veiculo.val(result.response_data.descricao);
+            btn_cadastrar.hide();
+            btn_atualizar.show();
 
+            update(id);
+        }),
+        error: ((result) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao Buscar!',
+                text: 'Ocorreu um erro inesperado ao tentar buscar um tipo de veículo, tente novamente mais tarde.'
+            });
+        })
+    });
 }
 
 function deleteById(id) {
@@ -119,8 +151,13 @@ function deleteById(id) {
 $(document).ready((e) => {
     getAll();
 
+    $("#cadastrar").click((e) => {
+        e.preventDefault();
+        insert();
+    });
+
     $(document).on('click', '.editar', function() {
-        updateById(this.id);
+        getById(this.id);
     });
     
     $(document).on('click', '.deletar', function() {

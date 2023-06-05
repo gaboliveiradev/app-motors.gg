@@ -23,4 +23,12 @@ class TipoVeiculoModel extends Model {
 		$dao = new TipoVeiculoDAO();
 		return $dao->deletar((int) $id);
 	}
+
+	public function getByID(int $id) 
+	{
+		$dao = new TipoVeiculoDAO();
+
+		$obj = $dao->getById((int) $id);
+		return ($obj) ? $obj : new TipoVeiculoModel();
+	}
 }

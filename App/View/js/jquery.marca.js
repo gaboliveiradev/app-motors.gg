@@ -12,7 +12,7 @@ function update(id) {
 }
 
 function insert(id = null) {
-    var title = (id == null) ? "Fabricante Cadastrado!" : "Fabricante Atualizado!";
+    var title = (id == null) ? "Marca Cadastrada!" : "Marca Atualizada!";
 
     if(marca.val() == "") {
         Swal.fire({

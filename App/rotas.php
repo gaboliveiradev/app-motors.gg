@@ -95,6 +95,10 @@ switch($parse_uri) {
         TipoVeiculoController::deletar();
     break;
 
+    case "/tipo-veiculo/get-by-id":
+        TipoVeiculoController::getById();
+    break;
+
 
     // == [OK] == Rotas de Dashboard
     case "/dashboard":

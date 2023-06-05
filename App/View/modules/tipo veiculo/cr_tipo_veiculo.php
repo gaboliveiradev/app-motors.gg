@@ -28,7 +28,8 @@
             <input id="tipoVeiculo" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Passeio">
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3" form="formTipoVeiculo">Cadastrar</button>
+            <button type="submit" id="cadastrar" class="btn btn-primary mb-3" form="formTipoVeiculo">Cadastrar</button>
+            <button type="submit" id="atualizar" class="btn btn-primary mb-3" form="formTipoVeiculo" style="display: none;">Atualizar</button>
           </div>
         </form>
       </div>
