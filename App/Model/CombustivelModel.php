@@ -12,10 +12,10 @@ class CombustivelModel extends Model {
 		return ($this->id == null) ? $dao->insert($this) : $dao->update($this);
 	}
 
-	public static function getAllRows() 
+	public static function getAllRows(int $ativo) 
 	{
 		$dao = new CombustivelDAO();
-		return $dao->getAllRows();
+		return $dao->getAllRows((int) $ativo);
 	}
 
 	public static function deletar(int $id) 

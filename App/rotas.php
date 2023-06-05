@@ -4,6 +4,7 @@ use App\Controller\{
     CombustivelController,
     DashboardController,
     FabricanteController,
+    LixeiraController,
     MarcaController,
     TipoVeiculoController,
     UsuarioController,
@@ -146,6 +147,12 @@ switch($parse_uri) {
 
     case "/importar":
         BackupController::import();
+    break;
+
+
+    // == [OK] == Rotas de Backup
+    case "/lixeira":
+        LixeiraController::view();
     break;
 
 

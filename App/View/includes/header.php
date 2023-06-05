@@ -38,7 +38,7 @@
                 Gerenciamento de Dados
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">Registros Excluidos</a></li>
+                <li><a class="dropdown-item" href="/lixeira">Registros Excluidos</a></li>
                 <li><a class="dropdown-item" href="#">Sistema de LOG</a></li>
               </ul>
             </li>

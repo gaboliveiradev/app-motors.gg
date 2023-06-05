@@ -25,7 +25,8 @@ class CombustivelController extends Controller {
 	{
 		parent::isAuthenticated();
 		$model = new CombustivelModel();
-		parent::setResponseAsJSON($model->getAllRows());
+		$ativo = (isset($_GET["ativo"])) ? $_GET["ativo"] : 1;
+		parent::setResponseAsJSON($model->getAllRows((int) $ativo));
 	}
 
 	public static function deletar() 

@@ -46,13 +46,14 @@ class CombustivelDAO extends DAO {
         }
     }
 
-    public function getAllRows() 
+    public function getAllRows(int $ativo) 
     {
         $sql = "SELECT c.id, c.descricao, DATE_FORMAT(c.data_cadastro,'%d/%m/%Y') as data_cadastro, 
         DATE_FORMAT(c.data_cadastro,'%Hh %im') as hora_cadastro, DATE_FORMAT(c.data_atualizado,'%d/%m/%Y') as data_atualizado, DATE_FORMAT(c.data_atualizado,'%Hh %im') as hora_atualizado, u.nome as operador FROM Combustivel c 
-        JOIN usuario u ON (u.id = c.id_quem_registrou) WHERE c.ativo = 1;";
+        JOIN usuario u ON (u.id = c.id_quem_registrou) WHERE c.ativo = ?;";
 
         $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $ativo);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
