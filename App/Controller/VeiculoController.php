@@ -48,6 +48,7 @@ class VeiculoController extends Controller {
 	{
 		parent::isAuthenticated();
 		$model = new VeiculoModel();
-		parent::setResponseAsJSON($model->getAllRows());
+		$ativo = (isset($_GET["ativo"])) ? $_GET["ativo"] : 1;
+		parent::setResponseAsJSON($model->getAllRows((int) $ativo));
 	}
 }
