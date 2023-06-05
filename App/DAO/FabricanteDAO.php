@@ -46,13 +46,14 @@ class FabricanteDAO extends DAO {
         }
     }
 
-    public function getAllRows() 
+    public function getAllRows(int $ativo) 
     {
         $sql = "SELECT f.id, f.descricao, DATE_FORMAT(f.data_cadastro,'%d/%m/%Y') as data_cadastro, 
         DATE_FORMAT(f.data_cadastro,'%Hh %im') as hora_cadastro, DATE_FORMAT(f.data_atualizado,'%d/%m/%Y') as data_atualizado, DATE_FORMAT(f.data_atualizado,'%Hh %im') as hora_atualizado,
-        u.nome as operador FROM Fabricante f JOIN usuario u ON (u.id = f.id_quem_registrou) WHERE f.ativo = 1;";
+        u.nome as operador FROM Fabricante f JOIN usuario u ON (u.id = f.id_quem_registrou) WHERE f.ativo = ?;";
 
         $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $ativo);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
