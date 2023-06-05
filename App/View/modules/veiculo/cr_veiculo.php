@@ -22,7 +22,72 @@
         <h1 class="text-center">Veículo</h1>
         <hr>
       </div>
+      <div class="body__form">
+        <form class="row g-3" id="formVeiculo">
+          <div class="col-md-2">
+            <label for="modelo" class="form-label">Modelo</label>
+            <input type="text" class="form-control" id="modelo">
+          </div>
+          <div class="col-md-2">
+            <label for="ano" class="form-label">Ano</label>
+            <input type="text" class="form-control" id="ano">
+          </div>
+          <div class="col-md-2">
+            <label for="cor" class="form-label">Cor</label>
+            <input type="text" class="form-control" id="cor">
+          </div>
+          <div class="col-md-2">
+            <label for="chassi" class="form-label">N Chassi</label>
+            <input type="text" class="form-control" id="chassi">
+          </div>
+          <div class="col-md-2">
+            <label for="placa" class="form-label">Placa</label>
+            <input type="text" class="form-control" id="placa">
+          </div>
+          <div class="col-md-2">
+            <label for="quilometragem" class="form-label">Quilometragem</label>
+            <input type="text" class="form-control" id="quilometragem">
+          </div>
+          <div class="col-md-12">
+            <label for="observacao" class="form-label">Observações</label>
+            <textarea style="resize:none;" class="form-control" id="observacao" rows="3"></textarea>
+          </div>
+          <div class="col-md-2 form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="revisao">
+            <label class="form-check-label" for="revisao">Revisão</label>
+          </div>
+          <div class="col-md-2 form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="venda">
+            <label class="form-check-label" for="venda">Venda</label>
+          </div>
+          <div class="col-md-2 form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="aluguel">
+            <label class="form-check-label" for="aluguel">Aluguel</label>
+          </div>
+          <div class="col-md-2 form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="roubo_furto">
+            <label class="form-check-label" for="roubo_furto">Roubo/Furto</label>
+          </div>
+          <div class="col-md-2 form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="particular">
+            <label class="form-check-label" for="particular">Particular</label>
+          </div>
+          <div class="col-md-2 form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="sinistrado">
+            <label class="form-check-label" for="sinistrado">Sinistrado</label>
+          </div>
+          <div class="col-auto">
+            <button type="submit" id="cadastrar" class="btn btn-primary mb-3" form="formVeiculo">Cadastrar</button>
+            <button type="submit" id="atualizar" class="btn btn-primary mb-3" form="formVeiculo" style="display: none;">Atualizar</button>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <script src="./../../../View/js/sweetalert/sweetalert-v11.7.5.js"></script>
+    <script src="./../../../View/js/jquery.veiculo.js"></script>
+  </footer>
 </body>
 </html>
