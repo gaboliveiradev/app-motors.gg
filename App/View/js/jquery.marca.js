@@ -1,7 +1,18 @@
-$("#formMarca").submit((e) => {
-    e.preventDefault();
+var btn_cadastrar = $("#cadastrar");
+var btn_atualizar = $("#atualizar");
+var marca = $("#marca");
 
-    var marca = $("#marca");
+function update(id) {
+    btn_atualizar.click((e) => {
+        e.preventDefault();
+        insert(id);
+        btn_atualizar.hide();
+        btn_cadastrar.show();
+    });
+}
+
+function insert(id = null) {
+    var title = (id == null) ? "Fabricante Cadastrado!" : "Fabricante Atualizado!";
 
     if(marca.val() == "") {
         Swal.fire({
@@ -14,12 +25,15 @@ $("#formMarca").submit((e) => {
             method: 'POST',
             dataType: 'json',
             data: {
-                marca: marca.val().toUpperCase()
+                marca: marca.val().toUpperCase(),
+                id: id
             },
             success: ((result) => {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Marca Cadastrada!',
+                    title: title,
+                }).then((e) => {
+                    if (e.isConfirmed) window.location.reload(true);
                 });
 
                 marca.val("");
@@ -34,7 +48,7 @@ $("#formMarca").submit((e) => {
             })
         });
     }
-});
+};
 
 function getAll() {
     $.ajax({
@@ -49,7 +63,7 @@ function getAll() {
             
             if(indiceJson != 0) {
                 for(var i = 0; i < indiceJson; i++) {
-                    var data_hora_cadastrado = (result.response_data[i].data_atualizado == null) ? `${result.response_data[i].data_cadastro} às ${result.response_data[i].hora_cadastro}` : result.response_data[i].data_atualizado;
+                    var data_hora_cadastrado = (result.response_data[i].data_atualizado == null) ? `${result.response_data[i].data_cadastro} às ${result.response_data[i].hora_cadastro}` : `${result.response_data[i].data_atualizado} às ${result.response_data[i].hora_atualizado}`;
     
                     var tr = $(`<tr>
                         <td class="id text-center">${result.response_data[i].id}</td>
@@ -74,15 +88,33 @@ function getAll() {
         error: ((result) => {
             Swal.fire({
                 icon: 'error',
-                title: 'Erro ao Cadastrar!',
+                title: 'Erro ao Carregar Dados!',
                 text: 'Ocorreu um erro inesperado ao tentar carregar os dados da tabela, tente novamente mais tarde.'
             });
         })
     });
 }
 
-function updateById(id) {
+function getById(id) {
+    $.ajax({
+        url: `/marca/get-by-id?id=${id}`,
+        method: 'GET',
+        dataType: 'json',
+        success: ((result) => {
+            marca.val(result.response_data.descricao);
+            btn_cadastrar.hide();
+            btn_atualizar.show();
 
+            update(id);
+        }),
+        error: ((result) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao Buscar!',
+                text: 'Ocorreu um erro inesperado ao tentar buscar uma marca, tente novamente mais tarde.'
+            });
+        })
+    });
 }
 
 function deleteById(id) {
@@ -119,8 +151,13 @@ function deleteById(id) {
 $(document).ready((e) => {
     getAll();
 
+    $("#cadastrar").click((e) => {
+        e.preventDefault();
+        insert();
+    });
+
     $(document).on('click', '.editar', function() {
-        updateById(this.id);
+        getById(this.id);
     });
     
     $(document).on('click', '.deletar', function() {

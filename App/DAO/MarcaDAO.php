@@ -24,15 +24,32 @@ class MarcaDAO extends DAO {
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function update(MarcaModel $model) 
+    public function update(MarcaModel $model) : bool
     {
+        try {
+            $sql = "UPDATE Marca SET descricao = ? WHERE id = ?;";
 
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->descricao);
+            $stmt->bindValue(2, $model->id);
+            $stmt->execute();
+
+            $sql = "UPDATE Marca SET data_atualizado = current_timestamp() WHERE id = ?;";
+
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->id);
+            $stmt->execute();
+    
+            return true;
+        } catch (PDOException $err) {
+            return false;
+        }
     }
 
     public function getAllRows() 
     {
         $sql = "SELECT m.id, m.descricao, DATE_FORMAT(m.data_cadastro,'%d/%m/%Y') as data_cadastro, 
-        DATE_FORMAT(m.data_cadastro,'%Hh %im') as hora_cadastro, m.data_atualizado, u.nome as operador FROM Marca m 
+        DATE_FORMAT(m.data_cadastro,'%Hh %im') as hora_cadastro, DATE_FORMAT(m.data_atualizado,'%d/%m/%Y') as data_atualizado, DATE_FORMAT(m.data_atualizado,'%Hh %im') as hora_atualizado, u.nome as operador FROM Marca m 
         JOIN usuario u ON (u.id = m.id_quem_registrou) WHERE m.ativo = 1;";
 
         $stmt = $this->conexao->prepare($sql);
@@ -54,5 +71,16 @@ class MarcaDAO extends DAO {
         } catch (PDOException $err) {
             return false;
         }
+    }
+
+    public function getById(int $id) 
+    {
+        $sql = "SELECT * FROM Marca WHERE id = ?";
+            
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return $stmt->fetchObject("App\Model\MarcaModel");
     }
 }

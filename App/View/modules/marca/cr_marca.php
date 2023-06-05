@@ -28,7 +28,8 @@
             <input id="marca" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Fiat">
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3" form="formMarca">Cadastrar</button>
+            <button type="submit" id="cadastrar" class="btn btn-primary mb-3" form="formMarca">Cadastrar</button>
+            <button type="submit" id="atualizar" class="btn btn-primary mb-3" form="formMarca" style="display: none;">Atualizar</button>
           </div>
         </form>
       </div>

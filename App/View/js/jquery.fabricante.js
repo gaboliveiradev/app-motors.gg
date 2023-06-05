@@ -63,7 +63,7 @@ function getAll() {
             
             if(indiceJson != 0) {
                 for(var i = 0; i < indiceJson; i++) {
-                    var data_hora_cadastrado = (result.response_data[i].data_atualizado == null) ? `${result.response_data[i].data_cadastro} às ${result.response_data[i].hora_cadastro}` : result.response_data[i].data_atualizado;
+                    var data_hora_cadastrado = (result.response_data[i].data_atualizado == null) ? `${result.response_data[i].data_cadastro} às ${result.response_data[i].hora_cadastro}` : `${result.response_data[i].data_atualizado} às ${result.response_data[i].hora_atualizado}`;
     
                     var tr = $(`<tr>
                         <td class="id text-center">${result.response_data[i].id}</td>

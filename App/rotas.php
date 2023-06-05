@@ -78,6 +78,9 @@ switch($parse_uri) {
         MarcaController::deletar();
     break;
 
+    case "/marca/get-by-id":
+        MarcaController::getById();
+    break;
 
     // == [OK] == Rotas de Tipo Veículo
     case "/tipo-veiculo/form":

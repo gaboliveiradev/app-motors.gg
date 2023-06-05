@@ -23,4 +23,12 @@ class MarcaModel extends Model {
 		$dao = new MarcaDAO();
 		return $dao->deletar((int) $id);
 	}
+
+	public function getByID(int $id) 
+	{
+		$dao = new MarcaDAO();
+
+		$obj = $dao->getById((int) $id);
+		return ($obj) ? $obj : new MarcaModel();
+	}
 }
