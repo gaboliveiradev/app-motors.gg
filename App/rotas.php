@@ -29,7 +29,6 @@ switch($parse_uri) {
         VeiculoController::form();
     break;
 
-
     // == [OK] == Rotas de Combustivel
     case "/combustivel/form":
         CombustivelController::form();
@@ -41,6 +40,10 @@ switch($parse_uri) {
 
     case "/combustivel/deletar":
         CombustivelController::deletar();
+    break;
+
+    case "/combustivel/get-by-id":
+        CombustivelController::getById();
     break;
 
 

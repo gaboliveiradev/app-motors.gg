@@ -29,7 +29,8 @@
             <input id="combustivel" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Gasolina">
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3" form="formCombustivel">Cadastrar</button>
+            <button type="submit" id="cadastrar" class="btn btn-primary mb-3" form="formCombustivel">Cadastrar</button>
+            <button type="submit" id="atualizar" class="btn btn-primary mb-3" form="formCombustivel" style="display: none;">Atualizar</button>
           </div>
         </form>
       </div>

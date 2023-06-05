@@ -24,15 +24,32 @@ class CombustivelDAO extends DAO {
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function update() 
+    public function update(CombustivelModel $model)  : bool
     {
+        try {
+            $sql = "UPDATE Combustivel SET descricao = ? WHERE id = ?;";
 
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->descricao);
+            $stmt->bindValue(2, $model->id);
+            $stmt->execute();
+
+            $sql = "UPDATE Combustivel SET data_atualizado = current_timestamp() WHERE id = ?;";
+
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->id);
+            $stmt->execute();
+    
+            return true;
+        } catch (PDOException $err) {
+            return false;
+        }
     }
 
     public function getAllRows() 
     {
         $sql = "SELECT c.id, c.descricao, DATE_FORMAT(c.data_cadastro,'%d/%m/%Y') as data_cadastro, 
-        DATE_FORMAT(c.data_cadastro,'%Hh %im') as hora_cadastro, c.data_atualizado, u.nome as operador FROM Combustivel c 
+        DATE_FORMAT(c.data_cadastro,'%Hh %im') as hora_cadastro, DATE_FORMAT(c.data_atualizado,'%d/%m/%Y') as data_atualizado, DATE_FORMAT(c.data_atualizado,'%Hh %im') as hora_atualizado, u.nome as operador FROM Combustivel c 
         JOIN usuario u ON (u.id = c.id_quem_registrou) WHERE c.ativo = 1;";
 
         $stmt = $this->conexao->prepare($sql);
