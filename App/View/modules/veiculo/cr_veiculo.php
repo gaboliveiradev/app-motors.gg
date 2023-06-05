@@ -25,27 +25,27 @@
       <div class="body__form">
         <form class="row g-3" id="formVeiculo">
           <div class="col-md-2">
-            <label for="modelo" class="form-label">Modelo</label>
+            <label for="modelo" class="form-label">Modelo *</label>
             <input type="text" class="form-control" id="modelo">
           </div>
           <div class="col-md-2">
-            <label for="ano" class="form-label">Ano</label>
+            <label for="ano" class="form-label">Ano *</label>
             <input type="text" class="form-control" id="ano">
           </div>
           <div class="col-md-2">
-            <label for="cor" class="form-label">Cor</label>
+            <label for="cor" class="form-label">Cor *</label>
             <input type="text" class="form-control" id="cor">
           </div>
           <div class="col-md-2">
-            <label for="chassi" class="form-label">N Chassi</label>
+            <label for="chassi" class="form-label">N Chassi *</label>
             <input type="text" class="form-control" id="chassi">
           </div>
           <div class="col-md-2">
-            <label for="placa" class="form-label">Placa</label>
+            <label for="placa" class="form-label">Placa *</label>
             <input type="text" class="form-control" id="placa">
           </div>
           <div class="col-md-2">
-            <label for="quilometragem" class="form-label">Quilometragem</label>
+            <label for="quilometragem" class="form-label">Quilometragem *</label>
             <input type="text" class="form-control" id="quilometragem">
           </div>
           <div class="col-md-12">
@@ -53,25 +53,25 @@
             <textarea style="resize:none;" class="form-control" id="observacao" rows="3"></textarea>
           </div>
           <div class="col-md-3">
-            <label for="placa" class="form-label">Combustível</label>
+            <label for="placa" class="form-label">Combustível *</label>
             <select class="form-select" id="selectCombustivel" aria-label="Default select example">
               <option selected disabled>Escolha</option>
             </select>
           </div>
           <div class="col-md-3">
-            <label for="placa" class="form-label">Fabricante</label>
+            <label for="placa" class="form-label">Fabricante *</label>
             <select class="form-select" id="selectFabricante" aria-label="Default select example">
               <option selected disabled>Escolha</option>
             </select>
           </div>
           <div class="col-md-3">
-            <label for="placa" class="form-label">Marca</label>
+            <label for="placa" class="form-label">Marca *</label>
             <select class="form-select" id="selectMarca" aria-label="Default select example">
               <option selected disabled>Escolha</option>
             </select>
           </div>
           <div class="col-md-3">
-            <label for="placa" class="form-label">Tipo do Veículo</label>
+            <label for="placa" class="form-label">Tipo do Veículo *</label>
             <select class="form-select" id="selectTipoVeiculo" aria-label="Default select example">
               <option selected disabled>Escolha</option>
             </select>
@@ -131,6 +131,9 @@
   </main>
 
   <footer>
+    <script src="./../../../View/js/jQuery/jquery-v3.7.0-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    <script src="./../../../View/js/src/src.maskedinput.js"></script>
     <script src="./../../../View/js/sweetalert/sweetalert-v11.7.5.js"></script>
     <script src="./../../../View/js/jquery.veiculo.js"></script>
   </footer>
